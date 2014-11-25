@@ -9,5 +9,5 @@ Setup Google Fonts API Key
 - Select or Create a Project
 - In the sidebar on the left, select APIs & auth. In the list of APIs, make sure the status is ON for the Google Fonts Developer API.
 - In the sidebar on the left, select Credentials.
-- Create an Public API key (Browser Key) and make sure to allow: http://www.roysivan.com
+- Create an Public API key (Browser Key) and make sure to allow your domain
 - Copy Key and paste in form above
