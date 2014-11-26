@@ -42,6 +42,7 @@ if( interface_exists( 'StyleGuideSection' ) ) {
 			if( get_option( '_sg_gFont_apiKey' ) ) {
 				wp_localize_script( 'GFontsJS_view', 'sgGfonts', array( 'gApi' => get_option( '_sg_gFont_apiKey' ) ) );
 			}
+			wp_enqueue_style( 'sg_GFonts_css', SG90_GFONTS_PLUGINURL.'/css/_sg_gfonts.css', '', '1.0', 'all' );
 		}
 		
 		function admin( $post ){
@@ -91,10 +92,13 @@ if( interface_exists( 'StyleGuideSection' ) ) {
 			
 			$i = 0;
 			foreach( $fonts['font'] as $font ) {
-				echo '<'.$fonts['tag'][$i].' style="font-family:'.$font.';';
-					if( $fonts['variant'][$i] !== 'regular' ) { echo 'font-weight:'.str_replace( 'italic', '', $fonts['variant'][$i] ).';'; }
-					if( strpos( $fonts['variant'][$i], 'italic' ) !== false ) { echo 'font-style: italic'; }
-				echo '">'.$font.'</'.$fonts['tag'][$i].'>';
+				echo '<div class="fontWrapper">';
+					echo '<span class="title">'.$fonts['tag'][$i].'</span>';
+					echo '<'.$fonts['tag'][$i].' style="font-family:'.$font.';';
+						if( $fonts['variant'][$i] !== 'regular' ) { echo 'font-weight:'.str_replace( 'italic', '', $fonts['variant'][$i] ).';'; }
+						if( strpos( $fonts['variant'][$i], 'italic' ) !== false ) { echo 'font-style: italic'; }
+					echo '">'.$font.'</'.$fonts['tag'][$i].'>';
+				echo '</div>';
 				$i++;
 			}
 			

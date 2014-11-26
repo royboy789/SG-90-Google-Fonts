@@ -1,0 +1,21 @@
+.fontWrapper {
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	margin: 0 0 20px 0;
+}
+
+.fontWrapper h1, 
+.fontWrapper h2, 
+.fontWrapper h3, 
+.fontWrapper p,
+.fontWrapper em,
+.fontWrapper strong { display: block; margin: 20px 10px 20px 10px; }
+
+.fontWrapper .title {
+	background: #fafafa;
+	border-bottom: 1px solid #e5e5e5;
+	display: block;
+	font-size: 1em;
+	padding: 10px 0 10px 10px;
+
+}
