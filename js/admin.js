@@ -9,13 +9,14 @@ $(document).ready(function(){
 		})
 		
 		var autoCopts = {
+			minlength: 0,
 			source: function( request, response ) {
 				$.get('https://www.googleapis.com/webfonts/v1/webfonts?key=' + sgGfonts.gApi + '&css=family=a' , function(res){
 					if( res.items ){
 						var items = res.items,
 						results = [];
 						$.each(items, function(i, v){
-							if( v.family.toLowerCase().indexOf( request.term.toLowerCase() ) >= 0 ) {
+							if( v.family.toLowerCase().indexOf( request.term.toLowerCase() ) === 0 ) {
 								results.push( v );
 							}
 						});
