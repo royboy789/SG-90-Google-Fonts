@@ -88,19 +88,21 @@ if( interface_exists( 'StyleGuideSection' ) ) {
 				$font = str_replace( ' ', '+', $font );
 				$string .= $font.'|';
 			}
-			echo '<link type="text/css" rel="stylesheet" href="'.$string.'" />';
+			$template = '<link type="text/css" rel="stylesheet" href="'.$string.'" />';
 			
 			$i = 0;
 			foreach( $fonts['font'] as $font ) {
-				echo '<div class="fontWrapper">';
-					echo '<span class="title">'.$fonts['tag'][$i].'</span>';
-					echo '<'.$fonts['tag'][$i].' style="font-family:'.$font.';';
-						if( $fonts['variant'][$i] !== 'regular' ) { echo 'font-weight:'.str_replace( 'italic', '', $fonts['variant'][$i] ).';'; }
-						if( strpos( $fonts['variant'][$i], 'italic' ) !== false ) { echo 'font-style: italic'; }
-					echo '">'.$font.'</'.$fonts['tag'][$i].'>';
-				echo '</div>';
+				$template .= '<div class="fontWrapper">';
+					$template .= '<span class="title">'.$fonts['tag'][$i].'</span>';
+					$template .= '<'.$fonts['tag'][$i].' style="font-family:'.$font.';';
+						if( $fonts['variant'][$i] !== 'regular' ) { $template .= 'font-weight:'.str_replace( 'italic', '', $fonts['variant'][$i] ).';'; }
+						if( strpos( $fonts['variant'][$i], 'italic' ) !== false ) { $template .= 'font-style: italic'; }
+					$template .= '">'.$font.'</'.$fonts['tag'][$i].'>';
+				$template .= '</div>';
 				$i++;
 			}
+			
+			return $template;
 			
 		}
 		
