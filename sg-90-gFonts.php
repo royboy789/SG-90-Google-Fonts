@@ -70,6 +70,8 @@ if( interface_exists( 'StyleGuideSection' ) ) {
 									echo '<option value="em">em / italics</option>';
 								echo '</select>';
 							echo '</td><td>';
+								echo '<input type="text" name="_sg_'.$this->sg_admin_title.'_gFont[font_size][]" placeholder="Font Size - 12 px|em|%" style="width:200px;" />';
+							echo '</td><td>';
 								echo '<input data-title="'.$this->sg_admin_title.'" type="text" class="sg_Gfont" name="_sg_'.$this->sg_admin_title.'_gFont[font][]" placeholder="Font Name" />';
 							echo '</td>';
 						echo '</tr>';
@@ -95,6 +97,7 @@ if( interface_exists( 'StyleGuideSection' ) ) {
 				$template .= '<div class="fontWrapper">';
 					$template .= '<span class="title">'.$fonts['tag'][$i].'</span>';
 					$template .= '<'.$fonts['tag'][$i].' style="font-family:'.$font.';';
+						if( isset( $fonts['font_size'][$i] ) ) { $template .= 'font-size: '.$fonts['font_size'][$i].';'; }
 						if( $fonts['variant'][$i] !== 'regular' ) { $template .= 'font-weight:'.str_replace( 'italic', '', $fonts['variant'][$i] ).';'; }
 						if( strpos( $fonts['variant'][$i], 'italic' ) !== false ) { $template .= 'font-style: italic'; }
 					$template .= '">'.$font.'</'.$fonts['tag'][$i].'>';
@@ -136,6 +139,10 @@ if( interface_exists( 'StyleGuideSection' ) ) {
 								if( $fonts['tag'][$i] === 'em' ) { $return .= 'selected="selected"'; }
 							$return .= '>em / italics</option>';
 						$return .= '</select>';
+					$return .= '</td><td>';
+						$return .= '<input type="text" name="_sg_'.$this->sg_admin_title.'_gFont[font_size][]" placeholder="Font Size - 12 px|em|%" style="width:200px;" ';
+						if( isset( $fonts['font_size'][$i] ) ) { $return .= 'value="'.$fonts['font_size'][$i].'"'; }
+						$return .= ' />';
 					$return .= '</td><td>';
 						$return .= '<input data-title="'.$this->sg_admin_title.'" type="text" class="sg_Gfont" name="_sg_'.$this->sg_admin_title.'_gFont[font][]" placeholder="Font Name" value="'.$font.'" />';
 					$return .= '</td>';
