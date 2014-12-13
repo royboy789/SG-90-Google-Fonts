@@ -7,7 +7,6 @@
 .fontWrapper h2, 
 .fontWrapper h3, 
 .fontWrapper p,
-.fontWrapper em,
 .fontWrapper strong { display: block; padding-left: 10px; }
 
 .fontWrapper .title {

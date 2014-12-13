@@ -96,11 +96,13 @@ if( interface_exists( 'StyleGuideSection' ) ) {
 			foreach( $fonts['font'] as $font ) {
 				$template .= '<div class="fontWrapper">';
 					$template .= '<span class="title">'.$fonts['tag'][$i].'</span>';
+					if( $fonts['tag'][$i] == 'em' ) { $template .= '<p>'; }
 					$template .= '<'.$fonts['tag'][$i].' style="font-family:'.$font.';';
 						if( isset( $fonts['font_size'][$i] ) ) { $template .= 'font-size: '.$fonts['font_size'][$i].';'; }
 						if( $fonts['variant'][$i] !== 'regular' ) { $template .= 'font-weight:'.str_replace( 'italic', '', $fonts['variant'][$i] ).';'; }
 						if( strpos( $fonts['variant'][$i], 'italic' ) !== false ) { $template .= 'font-style: italic'; }
 					$template .= '">'.$font.'</'.$fonts['tag'][$i].'>';
+					if( $fonts['tag'][$i] == 'em' ) { $template .= '</p>'; }
 				$template .= '</div>';
 				$i++;
 			}
