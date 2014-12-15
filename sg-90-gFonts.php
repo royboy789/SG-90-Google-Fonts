@@ -3,7 +3,7 @@
  * Plugin Name: SG-90 - Google Fonts Extension
  * Plugin URI: http://arcctrl.com/plugins/sg-90
  * Description: Add a new section to SG-90 for Google Fonts
- * Version: 0.1
+ * Version: 1.0
  * Author: ARC(CTRL)
  * Author URI: http://www.arcctrl.com
  * License: GPL2
