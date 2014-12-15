@@ -7,7 +7,7 @@
 .fontWrapper h2, 
 .fontWrapper h3, 
 .fontWrapper p,
-.fontWrapper strong { display: block; padding-left: 10px; }
+.fontWrapper strong { display: block; padding-left: 10px; padding-top: 10px; }
 
 .fontWrapper .title {
 	border-bottom: 1px solid #efefef;
